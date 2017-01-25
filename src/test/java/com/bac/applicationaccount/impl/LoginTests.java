@@ -274,7 +274,7 @@ public class LoginTests extends AbstractHibernateApplicationTestCase {
 		// Create a User with supplied details
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		user.setPasswordSalt(PasswordAuthentication.generateSalt());
 		user.setUserPassword(
 				PasswordAuthentication.getEncryptedPassword(password.toCharArray(), user.getPasswordSalt()));

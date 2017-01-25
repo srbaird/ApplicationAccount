@@ -50,7 +50,7 @@ public class AccountLoginModuleTests extends AbstractHibernateApplicationTestCas
 		// Create a User with the above login details
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		user.setPasswordSalt(PasswordAuthentication.generateSalt());
 		user.setUserPassword(PasswordAuthentication.getEncryptedPassword(passwordArray, user.getPasswordSalt()));
 		dao.createUser(user);
@@ -89,7 +89,7 @@ public class AccountLoginModuleTests extends AbstractHibernateApplicationTestCas
 		// Create a User with the above login details
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		user.setPasswordSalt(PasswordAuthentication.generateSalt());
 		user.setUserPassword(PasswordAuthentication.getEncryptedPassword(usePasswordArray, user.getPasswordSalt()));
 		dao.createUser(user);
@@ -165,7 +165,7 @@ public class AccountLoginModuleTests extends AbstractHibernateApplicationTestCas
 		// Create a User with the above login details
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		user.setPasswordSalt(PasswordAuthentication.generateSalt());
 		user.setUserPassword(PasswordAuthentication.getEncryptedPassword(passwordArray, user.getPasswordSalt()));
 		dao.createUser(user);
@@ -234,7 +234,7 @@ public class AccountLoginModuleTests extends AbstractHibernateApplicationTestCas
 		// Create a User with the above login details
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		user.setPasswordSalt(PasswordAuthentication.generateSalt());
 		user.setUserPassword(PasswordAuthentication.getEncryptedPassword(passwordArray, user.getPasswordSalt()));
 		dao.createUser(user);
@@ -275,7 +275,7 @@ public class AccountLoginModuleTests extends AbstractHibernateApplicationTestCas
 		// Create a User with the above login details
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		user.setPasswordSalt(PasswordAuthentication.generateSalt());
 		user.setUserPassword(PasswordAuthentication.getEncryptedPassword(passwordArray, user.getPasswordSalt()));
 		dao.createUser(user);

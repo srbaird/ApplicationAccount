@@ -182,7 +182,7 @@ public class AccountLoginModule implements LoginModule {
 
 		// Look up account details in persistent store
 		user = new SimpleUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 
 		user = applicationAccount.getUserBySecondaryKey(user);
 		if (user == null) {

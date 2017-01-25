@@ -105,7 +105,7 @@ public class ApplicationAccountLogin {
 		//	A decorator has been supplied so add a request credential and decorate the Subject
 		//
 		User user = publicUserCredentials.stream().findFirst().get();
-		subject.getPrivateCredentials().add(new ApplicationAccountRequest(applicationName, user.getUserEmail()));
+		subject.getPrivateCredentials().add(new ApplicationAccountRequest(applicationName, user.getUserKey()));
 		return subjectDecorator.addSubjectDetail(subject);
 	}
 }

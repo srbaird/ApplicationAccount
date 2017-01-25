@@ -46,7 +46,7 @@ public class UserAccountSubjectDecorator extends AbstractSubjectDecorator {
 		logger.debug("A valid request exists for '{}', '{}'", request.getApplicationName(), request.getUserIdentifier());
 		
 		User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(request.getUserIdentifier());
+		user.setUserKey(request.getUserIdentifier());
 		user = applicationAccount.getUserBySecondaryKey(user);
 		if (user == null) {
 			logger.debug("Request user was not found");

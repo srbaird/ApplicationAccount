@@ -49,7 +49,7 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 		//
 		assertNull(result.getCreateDate());
 		assertNull(result.getPasswordSalt());
-		assertNull(result.getUserEmail());
+		assertNull(result.getUserKey());
 		assertNull(result.getUserName());
 		assertNull(result.getUserPassword());
 		//
@@ -149,7 +149,7 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 			user.setActive(active);
 			user.setCreateDate(createDate);
 			user.setPasswordSalt(passwordSalt);
-			user.setUserEmail(userEmail);
+			user.setUserKey(userEmail);
 			user.setUserName(userName);
 			user.setUserPassword(userPassword);
 			instance.createUser(user);
@@ -159,7 +159,7 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 		assertEquals(createdUser.getActive(), active);
 		assertEquals(createdUser.getCreateDate(), createDate);
 		assertEquals(createdUser.getPasswordSalt(), passwordSalt);
-		assertEquals(createdUser.getUserEmail(), userEmail);
+		assertEquals(createdUser.getUserKey(), userEmail);
 		assertEquals(createdUser.getUserName(), userName);
 		assertEquals(createdUser.getUserPassword(), userPassword);
 	}
@@ -188,7 +188,7 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 			user.setActive(active);
 			user.setCreateDate(createDate);
 			user.setPasswordSalt(passwordSalt);
-			user.setUserEmail(userEmail);
+			user.setUserKey(userEmail);
 			user.setUserName(userName);
 			user.setUserPassword(userPassword);
 			instance.updateUser(user);
@@ -200,7 +200,7 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 		assertEquals(updatedUser.getActive(), active);
 		assertEquals(updatedUser.getCreateDate(), createDate);
 		assertEquals(updatedUser.getPasswordSalt(), passwordSalt);
-		assertEquals(updatedUser.getUserEmail(), userEmail);
+		assertEquals(updatedUser.getUserKey(), userEmail);
 		assertEquals(updatedUser.getUserName(), userName);
 		assertEquals(updatedUser.getUserPassword(), userPassword);
 	}
@@ -217,8 +217,8 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 		User user1 = SimpleComponentFactory.getUser();
 		User user2 = SimpleComponentFactory.getUser();
 
-		user1.setUserEmail(secondaryKey);
-		user2.setUserEmail(secondaryKey);
+		user1.setUserKey(secondaryKey);
+		user2.setUserKey(secondaryKey);
 
 		instance.createUser(user1);
 		instance.createUser(user2);
@@ -238,7 +238,7 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 			// Insert a User with the above value
 			//
 			final User user = SimpleComponentFactory.getUser();
-			user.setUserEmail(userEmail);
+			user.setUserKey(userEmail);
 			instance.createUser(user);
 			userId = user.getId();
 		}
@@ -247,7 +247,7 @@ public class HibernateApplicationAccountTestUser extends AbstractHibernateTestCa
 		// same user id
 		//
 		User scondaryKeyUser = SimpleComponentFactory.getUser();
-		scondaryKeyUser.setUserEmail(userEmail);
+		scondaryKeyUser.setUserKey(userEmail);
 		scondaryKeyUser = instance.getUserBySecondaryKey(scondaryKeyUser);
 		assertEquals(userId, scondaryKeyUser.getId());
 	}

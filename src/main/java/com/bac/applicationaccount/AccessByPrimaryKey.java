@@ -1,15 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.bac.applicationaccount;
 
 /**
+ * 
+ * Interface to represent entities which are represented by a unique Integer id
  *
- * @author user0001
+ * @author Simon Baird
  */
 public interface AccessByPrimaryKey extends ApplicationAccountEntity{
 
+	/**
+	 * Primary key is assumed to be an auto generated Integer value
+	 * 
+	 * @return integer representing the primary key of the enitity
+	 */
     Integer getId();
 }

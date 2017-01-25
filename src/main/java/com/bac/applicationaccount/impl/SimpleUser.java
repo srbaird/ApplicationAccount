@@ -20,7 +20,7 @@ public class SimpleUser implements User {
 
     private Integer id;
     private String userName;
-    private String userEmail;
+    private String userKey;
     private byte[] userPassword;
     private byte[] passwordSalt;
     private Character active;
@@ -53,13 +53,13 @@ public class SimpleUser implements User {
     }
 
     @Override
-    public String getUserEmail() {
-        return userEmail;
+    public String getUserKey() {
+        return userKey;
     }
 
     @Override
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
     }
 
     @Override
@@ -120,7 +120,7 @@ public class SimpleUser implements User {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((userEmail == null) ? 0 : userEmail.hashCode());
+		result = prime * result + ((userKey == null) ? 0 : userKey.hashCode());
 		return result;
 	}
 
@@ -133,10 +133,10 @@ public class SimpleUser implements User {
 		if (getClass() != obj.getClass())
 			return false;
 		SimpleUser other = (SimpleUser) obj;
-		if (userEmail == null) {
-			if (other.userEmail != null)
+		if (userKey == null) {
+			if (other.userKey != null)
 				return false;
-		} else if (!userEmail.equals(other.userEmail))
+		} else if (!userKey.equals(other.userKey))
 			return false;
 		return true;
 	}

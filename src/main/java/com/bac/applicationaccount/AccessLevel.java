@@ -1,21 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.bac.applicationaccount;
 
 /**
  *
- * @author user0001
+ * Class to define a value representing a nominal level of access to another entity
+ * 
+ * @author Simon Baird
  */
 public interface AccessLevel extends AccessByPrimaryKey {
     
+	/**
+	 * Set the primary key for an entity represented by this class
+	 * 
+	 * @param id the Integer representing the primary key of this entity
+	 */
     void setId(Integer id);
     
+    /**
+     * Get the description of this access level entitiy
+     * 
+     * @return void
+     */
     String getDescription();
     
+    /**
+     * Set the desciption of this entity
+     * 
+     * @param description String representation of the entity
+     */
     void setDescription(String description);   
 
 }

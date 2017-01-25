@@ -1,46 +1,133 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.bac.applicationaccount;
 
 import java.util.Date;
 import java.util.Set;
 
 /**
+ * A class representing a user which may be authorised to access an Application
  *
- * @author user0001
+ * @author Simon Baird
  */
 public interface User extends AccessByPrimaryKey {
 
-    void setId(Integer id);
+	/**
+	 * Set the primary key id of the User. Typically this is an auto generated
+	 * value
+	 * 
+	 * @param id
+	 *            Integer value of the primary key
+	 */
+	void setId(Integer id);
 
-    String getUserName();
+	/**
+	 * Get the name associated with the User.
+	 * 
+	 * @return the User name
+	 */
+	String getUserName();
 
-    void setUserName(String userName);
+	/**
+	 * Set the name associated with the User.
+	 * 
+	 * @param userName
+	 *            the User name
+	 */
+	void setUserName(String userName);
 
-    String getUserEmail();
+	/**
+	 * Get the unique character value that uniquely represents this user. This
+	 * is likely to be something like an email address or auto generated value.
+	 * 
+	 * @return the unique User identifier
+	 */
+	String getUserKey();
 
-    void setUserEmail(String userEmail);
+	/**
+	 * Set the unique character value that uniquely represents this user.
+	 * 
+	 * @param userKey
+	 *            the unique User identifier
+	 */
+	void setUserKey(String userKey);
 
-    byte[] getUserPassword();
+	/**
+	 * Get the password associate with the User. This should necessarily be in
+	 * an encrypted form
+	 * 
+	 * @return the User password array
+	 */
+	byte[] getUserPassword();
 
-    void setUserPassword(byte[] userPassword);
+	/**
+	 * Associate a a password with the User which will be used to authenticate
+	 * the User.
+	 * 
+	 * @param userPassword
+	 *            the User password array
+	 */
+	void setUserPassword(byte[] userPassword);
 
-    byte[] getPasswordSalt();
+	/**
+	 * Get the unique random password value to aid in the encryption of the User
+	 * password. This should be unique but is not enforced within the
+	 * application.
+	 * 
+	 * @return the unique password salt value associated with the User
+	 */
+	byte[] getPasswordSalt();
 
-    void setPasswordSalt(byte[] pSalt);
+	/**
+	 * Set a password salt value used in encrypting a plaintext password. The
+	 * value is random and therefore unique by definition
+	 * 
+	 * @param pSalt
+	 *            the unique password salt value to be associated with the User
+	 */
+	void setPasswordSalt(byte[] pSalt);
 
-    Character getActive();
+	/**
+	 * Get the value indicating whether the User is active or not.
+	 * 
+	 * @return a character value representing the active status of the User
+	 */
+	Character getActive();
 
-    void setActive(Character active);
+	/**
+	 * Set the active status of the USer. The default value is 'N'.
+	 * 
+	 * @param active
+	 *            a character value representing the active status of the User
+	 */
+	void setActive(Character active);
 
-    Date getCreateDate();
+	/**
+	 * Get the creation date of the User
+	 * 
+	 * @return the date on which the User was created.
+	 */
+	Date getCreateDate();
 
-    void setCreateDate(Date createDate);
+	/**
+	 * Set the creation date for the User.
+	 * 
+	 * @param createDate
+	 *            a Date value representing when the User was created
+	 */
+	void setCreateDate(Date createDate);
 
-    Set<Account> getAccounts();
+	/**
+	 * A convenience method to return the User access Accounts.
+	 * 
+	 * @return the Accounts mapped to the User the the AccountUser mapping.
+	 */
+	Set<Account> getAccounts();
 
-    void setAccounts(Set<Account> accounts);
+	/**
+	 * Set the Set of Accounts associated with the User. This is not intended to
+	 * be used for data manipulation purposes.
+	 * 
+	 * @return the Accounts mapped to the User the the AccountUser mapping.
+	 */
+	void setAccounts(Set<Account> accounts);
 }

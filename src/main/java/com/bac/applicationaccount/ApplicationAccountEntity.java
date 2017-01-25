@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.bac.applicationaccount;
 
 /**
- *
- * @author user0001
+ * A marker interface to encompass all entities used in data access within the
+ * project.
+ * 
+ * @author Simon Baird
  */
 public interface ApplicationAccountEntity {
 

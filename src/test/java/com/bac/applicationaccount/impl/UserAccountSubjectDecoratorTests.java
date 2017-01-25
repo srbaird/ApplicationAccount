@@ -93,7 +93,7 @@ public class UserAccountSubjectDecoratorTests extends AbstractHibernateApplicati
 		//
 		final String userKey = "user@email.address";
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		final ApplicationAccount dao = instance.getApplicationAccount();
 		dao.createUser(user);
 		//
@@ -126,7 +126,7 @@ public class UserAccountSubjectDecoratorTests extends AbstractHibernateApplicati
 		final String applicationName = "ApplicationAccount";
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		dao.createUser(user);
 		//
 		final Application application = SimpleComponentFactory.getApplication();
@@ -162,7 +162,7 @@ public class UserAccountSubjectDecoratorTests extends AbstractHibernateApplicati
 		final String applicationName = "ApplicationAccount";
 		//
 		final User user = SimpleComponentFactory.getUser();
-		user.setUserEmail(userKey);
+		user.setUserKey(userKey);
 		dao.createUser(user);
 		//
 		final Application application = SimpleComponentFactory.getApplication();

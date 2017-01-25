@@ -43,13 +43,13 @@ import com.bac.applicationaccount.impl.SimpleComponentFactory;
 @Entity
 @Table(name = "user")
 @NamedQueries({ @NamedQuery(name = "User.all", query = "SELECT u FROM HibernateUser u"),
-		@NamedQuery(name = "User.byEmail", query = "SELECT u FROM HibernateUser u WHERE u.userEmail=:userEmail") })
+		@NamedQuery(name = "User.byUSerKey", query = "SELECT u FROM HibernateUser u WHERE u.userKey=:userKey") })
 public class HibernateUser implements User, ApplicationAccountEntityProxy, ProxyHasSecondaryKey {
 
 	private static final long serialVersionUID = 698788636930698L;
 	private final String allQueryName = "User.all";
-	private final String secondaryKeyQueryName = "User.byEmail";
-	private final String userEmailKeyParamName = "userEmail";
+	private final String secondaryKeyQueryName = "User.byUSerKey";
+	private final String userKeyParamName = "userKey";
 
 
 	private User delegate;
@@ -103,17 +103,17 @@ public class HibernateUser implements User, ApplicationAccountEntityProxy, Proxy
 		getProxyDelegate().setUserName(userName);
 	}
 
-	@Column(name = "user_email", unique=true)
+	@Column(name = "user_key", unique=true)
 	@Override
-	public String getUserEmail() {
+	public String getUserKey() {
 
-		return delegate == null ? null : delegate.getUserEmail();
+		return delegate == null ? null : delegate.getUserKey();
 	}
 
 	@Override
-	public void setUserEmail(String userEmail) {
+	public void setUserKey(String userKey) {
 
-		getProxyDelegate().setUserEmail(userEmail);
+		getProxyDelegate().setUserKey(userKey);
 	}
 
 	@Column(name = "user_password")
@@ -184,7 +184,7 @@ public class HibernateUser implements User, ApplicationAccountEntityProxy, Proxy
 	@Override
 	public void setSecondaryKeyQuery(Query query) {
 
-		query.setParameter(userEmailKeyParamName, getUserEmail());
+		query.setParameter(userKeyParamName, getUserKey());
 	}
 
 	@ManyToMany(fetch = FetchType.EAGER, targetEntity = HibernateAccount.class)
