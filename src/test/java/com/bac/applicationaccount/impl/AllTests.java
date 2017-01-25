@@ -1,4 +1,4 @@
-package alltests;
+package com.bac.applicationaccount.impl;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -6,8 +6,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	com.bac.applicationaccount.hibernate.AllTests.class, 
-	com.bac.applicationaccount.impl.AllTests.class
+	AccountLoginModuleTests.class,
+	UserAccountSubjectDecoratorTests.class,
+	LoginTests.class 
 	})
 public class AllTests {
 

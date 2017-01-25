@@ -39,7 +39,7 @@
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
 		lazy-init="false">
 		<property name="staticMethod"
-			value="com.bac.applicationaccount.ApplicationAccounts.setInstance" />
+			value="com.bac.applicationaccount.impl.ApplicationAccounts.setInstance" />
 		<property name="arguments">
 			<list>
 				<ref bean="applicationAccount" />
@@ -50,28 +50,28 @@
 	<!-- Valid Application Account instance -->
 
 	<bean id="applicationAccount"
-		class="com.bac.applicationaccount.data.hibernate.HibernateApplicationAccount" />
+		class="com.bac.applicationaccount.hibernate.HibernateApplicationAccount" />
 
 	<!-- Proxy Object factory -->
 
 	<bean id="objectFactory"
-		class="com.bac.applicationaccount.data.hibernate.HibernateEntityProxyObjectFactory" />
+		class="com.bac.applicationaccount.hibernate.HibernateEntityProxyObjectFactory" />
 
 	<!-- Login Module under test -->
 
-	<bean id="loginModule" class="com.bac.applicationaccount.AccountLoginModule">
+	<bean id="loginModule" class="com.bac.applicationaccount.impl.AccountLoginModule">
 		<property name="applicationAccount" ref="applicationAccount" />
 	</bean>
 	
 		<!-- Login under test -->
 
-	<bean id="login" class="com.bac.applicationaccount.ApplicationAccountLogin">
+	<bean id="login" class="com.bac.applicationaccount.impl.ApplicationAccountLogin">
 		<property name="applicationAccount" ref="applicationAccount" />
 		<property name="subjectDecorator" ref="userAccountSubjectDecorator" />
 	</bean>
 
 	<!-- Decorator to provide User/Account access after login -->
-	<bean id="userAccountSubjectDecorator" class="com.bac.applicationaccount.UserAccountSubjectDecorator"
+	<bean id="userAccountSubjectDecorator" class="com.bac.applicationaccount.impl.UserAccountSubjectDecorator"
 		scope="prototype">
 		<property name="applicationAccount" ref="applicationAccount" />
 	</bean>

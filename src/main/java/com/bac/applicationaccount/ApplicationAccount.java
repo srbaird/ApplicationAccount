@@ -7,12 +7,6 @@ package com.bac.applicationaccount;
 
 import java.util.List;
 
-import com.bac.applicationaccount.data.AccessLevel;
-import com.bac.applicationaccount.data.Account;
-import com.bac.applicationaccount.data.AccountUser;
-import com.bac.applicationaccount.data.Application;
-import com.bac.applicationaccount.data.User;
-
 /**
  *
  * @author user0001
