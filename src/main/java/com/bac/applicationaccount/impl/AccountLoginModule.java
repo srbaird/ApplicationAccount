@@ -9,7 +9,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.security.auth.Subject;
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
@@ -45,10 +44,6 @@ public class AccountLoginModule implements LoginModule {
 	//
 	private final String LOGIN_FAILED_MSG = "Invalid login attempt for user '{}'";
 	private final String LOGIN_MODULE_FAILED = "Login module incomplete";
-	//
-	// Inject the ApplicationAccount DAO
-	//
-	@Resource(name = "applicationAccount")
 	private ApplicationAccount applicationAccount;
 	// logger
 	private static final Logger logger = LoggerFactory.getLogger(AccountLoginModule.class);
@@ -58,7 +53,6 @@ public class AccountLoginModule implements LoginModule {
 		// Obtain the DAO when the LoginModule is created by the LoginContext
 		//
 		applicationAccount = ApplicationAccounts.getInstance();
-		logger.info("Instantiated");
 	}
 
 	public ApplicationAccount getApplicationAccount() {
