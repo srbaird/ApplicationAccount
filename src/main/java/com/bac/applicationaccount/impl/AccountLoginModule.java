@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.bac.applicationaccount.impl;
 
 import java.security.NoSuchAlgorithmException;
@@ -25,8 +21,11 @@ import com.bac.applicationaccount.ApplicationAccount;
 import com.bac.applicationaccount.User;
 
 /**
+ * An implementation of the LoginModule. It uses the supplied data accessor to
+ * query the relevant data store and authenticate the supplied credentials. 
+ * 
+ * @author Simon Baird
  *
- * @author user0001
  */
 public class AccountLoginModule implements LoginModule {
 
@@ -76,7 +75,7 @@ public class AccountLoginModule implements LoginModule {
 	public boolean login() throws LoginException {
 
 		logger.debug("Perform login()");
-		
+
 		if (callbackHandler == null) {
 			throw new LoginException(LOGIN_MODULE_FAILED);
 		}
@@ -122,7 +121,7 @@ public class AccountLoginModule implements LoginModule {
 	public boolean commit() throws LoginException {
 
 		logger.debug("Perform commit()");
-		
+
 		if (succeeded == false) {
 			return false;
 		} else {
@@ -144,7 +143,7 @@ public class AccountLoginModule implements LoginModule {
 	public boolean abort() throws LoginException {
 
 		logger.debug("Perform abort()");
-		
+
 		if (succeeded == false) {
 			return false;
 		} else if (succeeded == true && commitSucceeded == false) {
@@ -163,7 +162,7 @@ public class AccountLoginModule implements LoginModule {
 
 	@Override
 	public boolean logout() throws LoginException {
-		
+
 		logger.debug("Perform logout()");
 
 		if (subject != null) {
@@ -192,6 +191,7 @@ public class AccountLoginModule implements LoginModule {
 		// Authenticate the password
 		boolean authentic;
 		try {
+			// TODO: remove the dependency on the static PasswordAuthentication methods
 			authentic = PasswordAuthentication.authenticate(password, user.getUserPassword(), user.getPasswordSalt());
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
 			logger.error("Password authentication error", ex);

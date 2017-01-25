@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.bac.applicationaccount.impl;
 
 import java.util.Objects;
@@ -22,12 +18,12 @@ import com.bac.applicationaccount.User;
 
 /**
  *
- * @author user0001
+ * @author Simon Baird
  */
 public class ApplicationAccountLogin {
 
 	// Use the class name to find the JAAS authentication entry
-	private final String JAAS_APPLICATION_NAME = this.getClass().getSimpleName();
+	private final String JAAS_APPLICATION_NAME = getClass().getSimpleName();
 	// TODO: move these to a resource bundle
 	private final String NO_APPLICATION_NAME_MSG = "No application name supplied";
 	private final String NO_CALLBACK_MSG = "No call back handler supplied";
@@ -42,14 +38,16 @@ public class ApplicationAccountLogin {
 	private SubjectDecorator subjectDecorator;
 	// logger
 	private static final Logger logger = LoggerFactory.getLogger(ApplicationAccountLogin.class);
-	
 
 	public String getLoginConfigName() {
 		return loginConfigName;
 	}
 
-	/*
-	 * Set the login config name if required
+	/**
+	 * Use the supplied login configuration file name to set the System property
+	 * and refresh the default Configuration.
+	 * 
+	 * @param loginConfigName the value to replace the current System property.
 	 */
 	public void setLoginConfigName(String loginConfigName) {
 
@@ -78,7 +76,7 @@ public class ApplicationAccountLogin {
 			throws LoginException, SecurityException {
 
 		logger.debug("login to '{}'", applicationName);
-		
+
 		Objects.requireNonNull(applicationName, NO_APPLICATION_NAME_MSG);
 		Objects.requireNonNull(callbackHandler, NO_CALLBACK_MSG);
 		//
@@ -102,7 +100,8 @@ public class ApplicationAccountLogin {
 			return subject;
 		}
 		//
-		//	A decorator has been supplied so add a request credential and decorate the Subject
+		// A decorator has been supplied so add a request credential and
+		// decorate the Subject
 		//
 		User user = publicUserCredentials.stream().findFirst().get();
 		subject.getPrivateCredentials().add(new ApplicationAccountRequest(applicationName, user.getUserKey()));
