@@ -73,31 +73,22 @@
 			<version>${hibernateVersion}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernateVersion}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>jta</artifactId>
-			<version>${jtaVersion}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
 			<version>${hibernatePersistenceVersion}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>${hibernateAnnotationsVersion}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- HSQLDB dependencies ******************* -->
+		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<version>${hibernateMemoryDBVersion}</version>
 			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>${hibernateAnnotationsVersion}</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- Spring dependencies ******************* -->
@@ -123,11 +114,7 @@
 			<artifactId>spring-test</artifactId>
 			<version>${springFrameworkVersion}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${springFrameworkVersion}</version>
-		</dependency>
+
 		<!-- Logging properties: Slf4J over Log4J ************************************ -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -145,22 +132,6 @@
 			<version>${log4jVersion}</version>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- GlassFish dependencies ********************** -->
-		<dependency>
-			<groupId>org.glassfish.extras</groupId>
-			<artifactId>glassfish-embedded-all</artifactId>
-			<version>${glassfishVersion}</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Mysql connector *************** -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysqlConnectorVersion}</version>
-			<scope>test</scope>
-		</dependency>
-
-
 	</dependencies>
 
 

@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.hibernate.NonUniqueObjectException;
 import org.hibernate.ObjectNotFoundException;
+import org.hibernate.PropertyValueException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.Test;
 
@@ -32,7 +33,7 @@ public class HibernateApplicationAccountTestAccountUser extends AbstractHibernat
 	 * application or user id must fail the integrity constraint
 	 */
 
-	@Test(expected = ConstraintViolationException.class)
+	@Test(expected = PropertyValueException.class)
 	public void defaultAccountUserShouldFail() {
 
 		instance.createAccountUser(SimpleComponentFactory.getAccountUser());
@@ -77,7 +78,7 @@ public class HibernateApplicationAccountTestAccountUser extends AbstractHibernat
 	 * integrity constraint
 	 */
 
-	@Test(expected = ConstraintViolationException.class)
+	@Test(expected = PropertyValueException.class)
 	public void createdAccountUserWithInvalidAccessLevelIdShouldFail() {
 
 		//

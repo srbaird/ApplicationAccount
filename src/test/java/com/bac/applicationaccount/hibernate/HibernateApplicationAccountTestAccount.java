@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.PropertyValueException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class HibernateApplicationAccountTestAccount extends AbstractHibernateTes
 	 * id must fail the integrity constraint
 	 */
 
-	@Test(expected = ConstraintViolationException.class)
+	@Test(expected = PropertyValueException.class)
 	public void defaultAccountShouldFail() {
 
 		instance.createAccountUser(SimpleComponentFactory.getAccountUser());
