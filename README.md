@@ -7,6 +7,9 @@ For convenience the project incorporates both the definition of the data model r
 
 The data model is quite simple and naturally open to enhancements but suffices as a starting point. The following diagram shows that it basically implements a many-to-many relationship between users and accounts. 
 
+![alt text](https://github.com/srbaird/ApplicationAccount/blob/master/documents/datamodel.jpg "Data model")
+
+
 This project does not provide an interface into maintaining the data model but does implement a simple DAO pattern which provides many of the methods for this purpose. These are used in the test files which carry out the basic CRUD actions. Testing uses the HSQLDB in-memory database which means that no RDBMS needs to be installed but if DDL is required then the following is the Hibernate output may suffice to create a permanent database
 
 ```
@@ -33,11 +36,11 @@ alter table account_user add constraint FK_oi67uyc3ncs55upo8ktu6791d foreign key
 alter table account_user add constraint FK_8luh3b98tnopwmffmtn54i7em foreign key (access_level_id) references access_level
 ```
 
-The config file used for testing is shown below. Note that the application login **expect its _own class name_ as the application name**.
+The config file used for testing is shown below. Note that the application login **expects its _own class name_ as the application name**.
 
 ```
 ApplicationAccountLogin {
-   com.bac.applicationaccount.**AccountLoginModule** required;
+   com.bac.applicationaccount.AccountLoginModule required;
 };
 ```
 Encryption uses the [PBKDF2WithHmacSHA1](https://en.wikipedia.org/wiki/PBKDF2) algorithm but the coupling to this will be removed to allow it to be injected as required.
