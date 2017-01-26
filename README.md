@@ -9,6 +9,7 @@ The data model is quite simple and naturally open to enhancements but suffices a
 
 ![alt text](https://github.com/srbaird/ApplicationAccount/blob/master/documents/datamodel.jpg "Data model")
 
+<img src="https://github.com/srbaird/ApplicationAccount/blob/master/documents/datamodel.jpg" alt="Data model" >
 
 This project does not provide an interface into maintaining the data model but does implement a simple DAO pattern which provides many of the methods for this purpose. These are used in the test files which carry out the basic CRUD actions. Testing uses the HSQLDB in-memory database which means that no RDBMS needs to be installed but if DDL is required then the following is the Hibernate output may suffice to create a permanent database
 
