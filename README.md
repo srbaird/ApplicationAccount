@@ -7,7 +7,9 @@ For convenience the project incorporates both the definition of the data model r
 
 The data model is quite simple and naturally open to enhancements but suffices as a starting point. The following diagram shows that it basically implements a many-to-many relationship between users and accounts. 
 
-<img src="https://github.com/srbaird/ApplicationAccount/blob/master/documents/datamodel.jpg" alt="Data model" style="display: block; margin: auto; max-width:50%;" >
+<p align="center">
+<img src="https://github.com/srbaird/ApplicationAccount/blob/master/documents/datamodel.jpg" alt="Data model"  >
+</p>
 
 This project does not provide an interface into maintaining the data model but does implement a simple DAO pattern which provides many of the methods for this purpose. These are used in the test files which carry out the basic CRUD actions. Testing uses the HSQLDB in-memory database which means that no RDBMS needs to be installed but if DDL is required then the following is the Hibernate output may suffice to create a permanent database
 
